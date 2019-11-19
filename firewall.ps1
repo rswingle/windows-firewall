@@ -8,7 +8,7 @@
 set-netfirewallprofile  -All -DefaultInboundAction Block -DefaultOutboundAction Block
 
 foreach ($ips in Get-Content .\firewall.allow){
-    New-NetFirewallRule -DisplayName “Allow $ips out” -RemoteAddress $ips -Direction Outbound -Action allow
-    New-NetFirewallRule -DisplayName “Allow $ips in” -RemoteAddress $ips -Direction Inbound -Action allow
+    New-NetFirewallRule -DisplayName "allow $ips out" -Direction Outbound -Action Allow -RemoteAddress $ips  
+    New-NetFirewallRule -DisplayName "allow $ips in" -Direction Inbound -Action Allow -RemoteAddress $ips 
 }
 
